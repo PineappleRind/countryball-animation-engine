@@ -4,9 +4,25 @@
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 50%;
-    z-index: 1;
-    pointer-events: none;
-    box-shadow: inset 0 -2px 20px -1px rgba(0, 0, 0, 0.432), 0 2px 3px -1px rgba(0, 0, 0, 0.6);
+    height: var(--height);
+    width: var(--width);
+    top: var(--top);
+    left: var(--left);
+    background-image: var(--flag);
+    box-shadow: inset 0 -2px 20px -1px rgba(0, 0, 0, 0.432), 0 2px 3px -1px rgba(0, 0, 0, 0.6), 0 0 0 3px rgba(0, 0, 0);
+}
+
+.countryball::before {
+    content: "";
+    position: absolute;
+    top: 75%;
+    width: 100%;
+    border-radius: 50%;
+    bottom: -10px;
+    background: black;
+    filter: blur(10px);
+    z-index: -1;
+    opacity: 0.5;
 }
 
 .countryball .eye-container {
@@ -18,16 +34,16 @@
     left: 0;
     width: 100%;
     height: 60%;
-    z-index: 2;
-    pointer-events: none;
 }
 
 .eye {
     background: #fff;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    box-shadow: 0 0 1px 2px rgb(0, 0, 0);
-    margin: 5px;
-    pointer-events: none;
+    width: var(--eye-size);
+    height: var(--eye-size);
+    top: var(--top);
+    left: var(--left);
+
+    box-shadow: 0 0 2px 3px rgb(0, 0, 0);
+    margin: 15px 10px;
 }

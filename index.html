@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,23 @@
     <title>Cont</title>
     <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-    <script type="module" src="build/index.js"></script>
+    <script type="module" src="src/index.js"></script>
+    <script type="module">
+        import CountryballAnimation from './src/index.js';
+        const scene = new CountryballAnimation()
+        let i = 0
+        function add(xy, name, other) {
+            scene.add([i * 220, 10], [200, 200], name, other); i++
+        }
+        const countryballs = [
+            //         x,   y   width, height   name      other options
+            add([20, 10], 'indonesia', { label: true }),
+            add([240, 10], 'poland', { label: true }),
+            add([460, 10], 'monaco', { label: true }),
+        ]
+    </script>
 </body>
+
 </html>
