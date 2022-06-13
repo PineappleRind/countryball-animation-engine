@@ -16,7 +16,7 @@
         const scene = new CountryballAnimation({ poland: true })
         let i = 0
         function add(name) {
-            scene.add([(i+0.1) * 220, 70], [200, 200], name, { label: true }); i++
+            scene.add([(i+0.1) * 220, window.innerHeight - 270], [200, 200], name, { label: true }); i++
         }
         const countryballs = [
             //     x,  y           name

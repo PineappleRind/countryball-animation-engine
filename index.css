@@ -22,6 +22,7 @@
     width: fit-content;
     white-space: pre;
     top: -40px;
+    font-size: calc(var(--height) * 0.11);
     transform: translateX(-50%);
     left: 50%;
     background:rgba(0, 0, 0, 0.432);
