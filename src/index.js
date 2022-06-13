@@ -11,10 +11,9 @@ export default class CountryballAnimation {
     }
     add(xy, hw, country, other) {
         let countryball = new Countryball({ xy, hw, country }, {
-            options: {
-                ...this.options,
-                ...other
-            }
+            ...this.options,
+            ...other
+
         });
         this.countryballs.push(countryball);
         this.countryballs = this.drawManager.update(this)

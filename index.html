@@ -13,16 +13,20 @@
     <script type="module" src="src/index.js"></script>
     <script type="module">
         import CountryballAnimation from './src/index.js';
-        const scene = new CountryballAnimation()
+        const scene = new CountryballAnimation({ poland: true })
         let i = 0
-        function add(xy, name, other) {
-            scene.add([i * 220, 10], [200, 200], name, other); i++
+        function add(name) {
+            scene.add([(i+0.1) * 220, 70], [200, 200], name, { label: true }); i++
         }
         const countryballs = [
-            //         x,   y   width, height   name      other options
-            add([20, 10], 'indonesia', { label: true }),
-            add([240, 10], 'poland', { label: true }),
-            add([460, 10], 'monaco', { label: true }),
+            //     x,  y           name
+            add('canada'),
+            add('united states'),
+            add('mexico'),
+            add('colombia'),
+            add('el salvador'),
+            add('guatemala'),
+            add('nicaragua'),
         ]
     </script>
 </body>

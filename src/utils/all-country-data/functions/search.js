@@ -4,11 +4,8 @@ var search = function (string) {
         return;
     var arr = [];
     data.map(function (item) {
-        for (var key in item) {
-            if (typeof item[key] === 'string' && item[key].toLowerCase().indexOf(string.toLowerCase()) > -1 && key !== 'currency') {
-                arr.push(item);
-                return true;
-            }
+        if (item.name.toLowerCase().indexOf(string.toLowerCase()) > -1) {
+            arr.push(item);
         }
     });
     return arr;
