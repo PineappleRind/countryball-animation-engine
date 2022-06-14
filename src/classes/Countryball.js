@@ -24,7 +24,7 @@ export class Countryball {
             [0, 0],
             [0, 0]
         ];
-        if (options.label === true) this.label = searched[0].name;
+        if (options.label === true) this.label = searched[0].name[options.lang || 'en'];
         return this;
     }
 

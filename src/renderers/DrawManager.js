@@ -75,12 +75,16 @@ export default class DrawManager {
         element = props(element, {
             "--left": `${x}px`, "--top": `${y}px`,
             "--height": `${h}px`, "--width": `${w}px`,
-            "--flag": `url(${flag})`
+            "--flag": `url('${flag}')`
         })
-        console.log(child)
         if (child.label) {
             element.classList.add('labeled')
             element.style.setProperty('--label', '"' + child.label + '"')
+            // set label size as a property, based on countryball height
+            // decrease label size if it has a lot of text
+            let labelSize = h * 0.1;
+            if (child.label.length > 10) labelSize *= 0.8;
+            element.style.setProperty('--label-size', `${labelSize}px`)
         }
         return child;
     }

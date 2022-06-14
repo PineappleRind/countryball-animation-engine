@@ -1,10 +1,10 @@
-import data from '../data/data.json' assert { type: 'json' }
+import data from '../data/data.json' assert { type: "json" };
 var countryList = function () {
     var countries = [];
     data.map(function (item) {
         var obj = {
-            country: item.name,
-            country_code: item.country_code
+            country: item.name.en,
+            country_code: {"2": item.iso3166.alpha2, "3": item.iso3166.alpha3},
         };
         countries.push(obj);
         return true;

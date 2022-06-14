@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countryball Animation Engine</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <script type="module">
+        import { CountryballAnimation } from "../src/index.js";
+        let h = window.innerHeight;
+        let w = window.innerWidth;
+
+        var scene = new CountryballAnimation({ label: true, data: "area" });
+
+        import data from '../src/utils/all-country-data/data/data.json' assert { type: 'json'}
+        let d = data
+        d = Object.values(d)
+        // Sort by area
+        d.sort((b,a) => b.area - a.area);
+        let t = 10, prev = { size: 2, x: 2 };
+        for (let i = 0; i < d.length; i++) {
+            // set the size to the area, but use a log scale
+            let size = Math.log1p((d[i].area/1000)+20) * 35;
+            // the y axis makes them on the bottom of the screen
+            let y = h - size;
+            let x = prev.size + prev.x + 20;
+            console.log(prev)
+            // the x axis makes them spread out horizontally, all in a line
+            // and since the size is variable, they are spread out evenly
+            scene.add([x, y], [size, size], d[i].name.en)
+
+            prev = { size: size, x: x }
+            console.log(prev)
+        }
+        let lastResize = Date.now();
+
+        onresize = () => {
+            h = window.innerHeight;
+            w = window.innerWidth;
+            if (Date.now() - lastResize > 1000) {
+                scene.countryballs.forEach(c => {
+                    c.y = h - c.size;
+                });
+                lastResize = Date.now();
+            }
+        }
+    </script>
+
+</body>
+
+</html>

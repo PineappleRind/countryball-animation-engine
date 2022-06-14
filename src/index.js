@@ -10,7 +10,6 @@ export class CountryballAnimation {
         let drawManager = new DrawManager();
         this.drawManager = drawManager;
         this.countryballs = [] 
-        this.begin()
         this.options = options
         return this;
     }
